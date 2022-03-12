@@ -6,6 +6,7 @@ class ProfessionalsDao():
 
   def __init__(self):
     self.db = firebase.get_firestore_client()
+    self.batch = self.db.batch()
     self.professionals = local_db.load_table(PROFESSIONALS)
 
   def get_all_professionals(self):

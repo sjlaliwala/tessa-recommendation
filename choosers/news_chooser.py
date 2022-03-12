@@ -1,5 +1,6 @@
 from choosers.chooser import Chooser
 import random
+
 NEWS_ARTICLE_LIMIT = 2
 
 class NewsChooser(Chooser):

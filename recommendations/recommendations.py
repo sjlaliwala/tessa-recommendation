@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 class Recommendations(ABC):
+  batch_size = 500
 
   @abstractmethod
   def extract():
