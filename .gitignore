@@ -133,3 +133,5 @@ config/
 
 #local database files
 local_db/*.json
+
+.DS_Store
