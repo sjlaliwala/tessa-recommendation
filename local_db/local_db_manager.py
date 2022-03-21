@@ -14,9 +14,8 @@ def read_json_to_dict(filename):
 LOCAL_DB = {
   USERS : read_json_to_dict(f'{LOCAL_DB_PATH}/{USERS}.json') if exists(f'{LOCAL_DB_PATH}/{USERS}.json') else None,
   NEWS: read_json_to_dict(f'{LOCAL_DB_PATH}/{NEWS}.json') if exists(f'{LOCAL_DB_PATH}/{NEWS}.json') else None,
-  NEWS_RECOMMENDATIONS: read_json_to_dict(f'{LOCAL_DB_PATH}/{NEWS_RECOMMENDATIONS}.json') if exists(f'{LOCAL_DB_PATH}/{NEWS_RECOMMENDATIONS}.json') else None,
   PROFESSIONALS: read_json_to_dict(f'{LOCAL_DB_PATH}/{PROFESSIONALS}.json') if exists(f'{LOCAL_DB_PATH}/{PROFESSIONALS}.json') else None,
-  PROFESSIONALS_RECOMMENDATIONS: read_json_to_dict(f'{LOCAL_DB_PATH}/{PROFESSIONALS_RECOMMENDATIONS}.json') if exists(f'{LOCAL_DB_PATH}/{PROFESSIONALS_RECOMMENDATIONS}.json') else None
+  RECOMMENDATIONS: read_json_to_dict(f'{LOCAL_DB_PATH}/{RECOMMENDATIONS}.json') if exists(f'{LOCAL_DB_PATH}/{RECOMMENDATIONS}.json') else None
 }
 
 def load_table(table):

@@ -37,7 +37,7 @@ class NewsChooser(Chooser):
       while article_id is None or article_id in seen_articles or article_id in self.past_user_news:
         article_id = random.choice(list(news_by_topic.keys()))
       seen_articles.add(article_id)
-      news_articles.append({**news_by_topic[article_id], 'article_id': article_id})
+      news_articles.append({**news_by_topic[article_id], 'id': article_id})
     return news_articles
       
 

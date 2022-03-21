@@ -12,9 +12,5 @@ class Recommendations(ABC):
     pass
 
   @abstractmethod
-  def load():
-    pass
-
-  @abstractmethod
   def generate():
     pass

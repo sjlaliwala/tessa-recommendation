@@ -29,7 +29,7 @@ class ProfessionalsChooser(Chooser):
       if professional_id not in self.past_user_professionals:
         professional_interests = self.get_professional_interest_tags(professional)
         similarity = calculate_jaccard_similarity(user_interests_tags, professional_interests)
-        most_similar_professionals.append({**professional, 'professional_id': professional_id, 'similarity': similarity})
+        most_similar_professionals.append({**professional, 'id': professional_id, 'similarity': similarity})
 
     most_similar_professionals = sorted(most_similar_professionals, key=lambda p: p['similarity'], reverse=True)
     return most_similar_professionals
