@@ -12,8 +12,8 @@ def main():
     ProfessionalsRecommendations(daos)
   ]
   recommendations = [rec.generate() for rec in recommendation_generators]
-  recommendation_date = {'timestamp': int(time.time() * 1000), 'date': '03-13-2022'}
-  recommendation_loader = RecommendationLoader(recommendations, recommendation_date)
+  recommendation_timestamp = int(time.time() * 1000)
+  recommendation_loader = RecommendationLoader(recommendations, recommendation_timestamp)
   recommendation_loader.load()
   
   

@@ -2,10 +2,9 @@ from dao.recommendations_dao import RecommendationsDao
 
 class RecommendationLoader():
 
-  def __init__(self, typed_recommendations, recommendation_date):
+  def __init__(self, typed_recommendations, recommendation_timestamp):
     self.typed_recommendations = typed_recommendations
-    self.timestamp = recommendation_date['timestamp']
-    self.date = recommendation_date['date']
+    self.timestamp = recommendation_timestamp
     self.recommendations_dao = RecommendationsDao()
 
   def load(self):
@@ -16,14 +15,13 @@ class RecommendationLoader():
     aggregated_recommendations = {}
     for type, recommendations in self.typed_recommendations:
       for uid, recommendation in recommendations.items():
-        user_recommendation_key = f'{uid}#{self.date}'
+        user_recommendation_key = f'{uid}#{self.timestamp}'
         if user_recommendation_key not in aggregated_recommendations:
           aggregated_recommendations[user_recommendation_key] = {
             'uid': uid,
             'timestamp': self.timestamp,
-            'date': self.date
           }
-        aggregated_recommendations[f'{uid}#{self.date}'][type] = recommendation
+        aggregated_recommendations[user_recommendation_key][type] = recommendation
     return aggregated_recommendations
 
 
