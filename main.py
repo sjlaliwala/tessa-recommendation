@@ -1,4 +1,4 @@
-from dao.daos import daos
+from dao.daos import Daos
 import time
 from recommendations.recommendations import Recommendations
 from recommendations.news_recommendations import NewsRecommendations
@@ -7,6 +7,7 @@ from loaders.recommendation_loader import RecommendationLoader
 
 
 def main():
+  daos = Daos().get_daos()
   recommendation_generators: list[Recommendations] = [
     NewsRecommendations(daos),
     ProfessionalsRecommendations(daos)

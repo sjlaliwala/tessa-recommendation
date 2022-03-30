@@ -15,7 +15,8 @@ LOCAL_DB = {
   USERS : read_json_to_dict(f'{LOCAL_DB_PATH}/{USERS}.json') if exists(f'{LOCAL_DB_PATH}/{USERS}.json') else None,
   NEWS: read_json_to_dict(f'{LOCAL_DB_PATH}/{NEWS}.json') if exists(f'{LOCAL_DB_PATH}/{NEWS}.json') else None,
   PROFESSIONALS: read_json_to_dict(f'{LOCAL_DB_PATH}/{PROFESSIONALS}.json') if exists(f'{LOCAL_DB_PATH}/{PROFESSIONALS}.json') else None,
-  RECOMMENDATIONS: read_json_to_dict(f'{LOCAL_DB_PATH}/{RECOMMENDATIONS}.json') if exists(f'{LOCAL_DB_PATH}/{RECOMMENDATIONS}.json') else None
+  RECOMMENDATIONS: read_json_to_dict(f'{LOCAL_DB_PATH}/{RECOMMENDATIONS}.json') if exists(f'{LOCAL_DB_PATH}/{RECOMMENDATIONS}.json') else None,
+  TEST_USERS : read_json_to_dict(f'{LOCAL_DB_PATH}/{TEST_USERS}.json') if exists(f'{LOCAL_DB_PATH}/{TEST_USERS}.json') else None
 }
 
 def load_table(table):

@@ -20,7 +20,7 @@ class InvitesChooser(Chooser):
     if self.user_data['school'] != '' and self.user_data['major'] != '' and random.choice([True, False]):
       user_major = self.user_data['major'].lower()
       user_school = self.user_data['school']
-      return NETWORKING_INVITE_TEMPLATE.format(professional_first_name, user_major, user_school, professional_career, professional_domain)
+      return NETWORKING_INVITE_TEMPLATE.format(professional_first_name, f'{user_major} major', user_school, professional_career, professional_domain)
     else:
       user_career = self.user_data['position'].lower()
       user_company = self.user_data['company']
