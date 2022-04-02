@@ -22,11 +22,12 @@ class NewsRecommendations(Recommendations):
   def transform(self, users, news, past_recommendations):
     news_recommendations = {}
     for user_id, user_data in users.items():
-      user_news_interests = user_data['interests']['domains']
-      past_user_news = past_recommendations[user_id]['news'] if user_id in past_recommendations else []
-      news_chooser = NewsChooser(news, user_news_interests, past_user_news)
-      recommended_news = news_chooser.choose()
-      news_recommendations[user_id] = recommended_news
+      if user_data['onboarded']:
+        user_news_interests = user_data['interests']['domains']
+        past_user_news = past_recommendations[user_id]['news'] if user_id in past_recommendations and 'news' in past_recommendations[user_id] else []
+        news_chooser = NewsChooser(news, user_news_interests, past_user_news)
+        recommended_news = news_chooser.choose()
+        news_recommendations[user_id] = recommended_news
     return news_recommendations
 
   def generate(self):
