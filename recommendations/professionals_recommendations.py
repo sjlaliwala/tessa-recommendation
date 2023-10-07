@@ -24,10 +24,10 @@ class ProfessionalsRecommendations(Recommendations):
   def transform(self, users, professionals, past_recommendations):
     professional_recommendations = {}
     for user_id, user_data in users.items():
-      if user_data['onboarded']:
-        recommended_professionals = self.generate_recommended_professionals(user_id, user_data['interests'], professionals, past_recommendations)
-        self.add_in_recommended_invites(user_data, recommended_professionals)
-        professional_recommendations[user_id] = recommended_professionals
+      user_interests = user_data['interests'] if user_data['onboarded'] else {}
+      recommended_professionals = self.generate_recommended_professionals(user_id, user_interests, professionals, past_recommendations)
+      self.add_in_recommended_invites(user_data, recommended_professionals)
+      professional_recommendations[user_id] = recommended_professionals
     return professional_recommendations
 
   def generate_recommended_professionals(self, user_id, user_interests, professionals, past_recommendations):

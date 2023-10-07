@@ -11,7 +11,7 @@ class NewsChooser(Chooser):
     self.topics_to_fetch = []
 
   def choose(self):
-    news_topics = self.get_news_topics()
+    news_topics = [] if len(self.user_news_interests) == 0 else self.get_news_topics()
     news_articles = self.get_news_articles(news_topics)
     return news_articles
 
@@ -26,9 +26,15 @@ class NewsChooser(Chooser):
           self.topics_to_fetch.append(topic)
           print(f'YOU NEED TO FETCH MORE {topic} news')
       news_topics.append(topic)
+    
+    while len(news_topics) < 2:
+      random_topic = random.choice(list(self.news.keys()))
+      news_topics.append(random_topic)
+      print(self.user_news_interests)
+      exit()
     return news_topics
 
-  def get_news_articles(self, news_topics):
+  def get_news_articles(self, news_topics): 
     news_articles = []
     seen_articles = set()
     for topic in news_topics:
